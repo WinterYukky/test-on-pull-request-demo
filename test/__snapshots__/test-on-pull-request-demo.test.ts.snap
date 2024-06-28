@@ -1,0 +1,710 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test 1`] = `
+{
+  "Mappings": {
+    "LatestNodeRuntimeMap": {
+      "af-south-1": {
+        "value": "nodejs20.x",
+      },
+      "ap-east-1": {
+        "value": "nodejs20.x",
+      },
+      "ap-northeast-1": {
+        "value": "nodejs20.x",
+      },
+      "ap-northeast-2": {
+        "value": "nodejs20.x",
+      },
+      "ap-northeast-3": {
+        "value": "nodejs20.x",
+      },
+      "ap-south-1": {
+        "value": "nodejs20.x",
+      },
+      "ap-south-2": {
+        "value": "nodejs20.x",
+      },
+      "ap-southeast-1": {
+        "value": "nodejs20.x",
+      },
+      "ap-southeast-2": {
+        "value": "nodejs20.x",
+      },
+      "ap-southeast-3": {
+        "value": "nodejs20.x",
+      },
+      "ap-southeast-4": {
+        "value": "nodejs20.x",
+      },
+      "ca-central-1": {
+        "value": "nodejs20.x",
+      },
+      "cn-north-1": {
+        "value": "nodejs18.x",
+      },
+      "cn-northwest-1": {
+        "value": "nodejs18.x",
+      },
+      "eu-central-1": {
+        "value": "nodejs20.x",
+      },
+      "eu-central-2": {
+        "value": "nodejs20.x",
+      },
+      "eu-north-1": {
+        "value": "nodejs20.x",
+      },
+      "eu-south-1": {
+        "value": "nodejs20.x",
+      },
+      "eu-south-2": {
+        "value": "nodejs20.x",
+      },
+      "eu-west-1": {
+        "value": "nodejs20.x",
+      },
+      "eu-west-2": {
+        "value": "nodejs20.x",
+      },
+      "eu-west-3": {
+        "value": "nodejs20.x",
+      },
+      "il-central-1": {
+        "value": "nodejs20.x",
+      },
+      "me-central-1": {
+        "value": "nodejs20.x",
+      },
+      "me-south-1": {
+        "value": "nodejs20.x",
+      },
+      "sa-east-1": {
+        "value": "nodejs20.x",
+      },
+      "us-east-1": {
+        "value": "nodejs20.x",
+      },
+      "us-east-2": {
+        "value": "nodejs20.x",
+      },
+      "us-gov-east-1": {
+        "value": "nodejs18.x",
+      },
+      "us-gov-west-1": {
+        "value": "nodejs18.x",
+      },
+      "us-iso-east-1": {
+        "value": "nodejs18.x",
+      },
+      "us-iso-west-1": {
+        "value": "nodejs18.x",
+      },
+      "us-isob-east-1": {
+        "value": "nodejs18.x",
+      },
+      "us-west-1": {
+        "value": "nodejs20.x",
+      },
+      "us-west-2": {
+        "value": "nodejs20.x",
+      },
+    },
+  },
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "AWS679f53fac002430cb0da5b7982bd22872D164C4C": {
+      "DependsOn": [
+        "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
+          },
+          "S3Key": "HASH-REPLACED.zip",
+        },
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::GetAtt": [
+            "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
+            "Arn",
+          ],
+        },
+        "Runtime": {
+          "Fn::FindInMap": [
+            "LatestNodeRuntimeMap",
+            {
+              "Ref": "AWS::Region",
+            },
+            "value",
+          ],
+        },
+        "Timeout": 120,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "ApprovalRuleTemplate298A4659": {
+      "DeletionPolicy": "Delete",
+      "DependsOn": [
+        "ApprovalRuleTemplateCustomResourcePolicyD7ED5985",
+      ],
+      "Properties": {
+        "Create": {
+          "Fn::Join": [
+            "",
+            [
+              "{"service":"@aws-sdk/client-codecommit","action":"CreateApprovalRuleTemplateCommand","parameters":{"approvalRuleTemplateName":"MyTestStackApprovalRuleTemplate0B9DBA08","approvalRuleTemplateContent":"{\\"Version\\":\\"2018-11-08\\",\\"DestinationReferences\\":[\\"refs/heads/main\\"],\\"Statements\\":[{\\"Type\\":\\"Approvers\\",\\"ApprovalPoolMembers\\":[\\"CodeCommitApprovers:",
+              {
+                "Ref": "ProjctRoleF3097B6D",
+              },
+              "/*\\"],\\"NumberOfApprovalsNeeded\\":1}]}"},"physicalResourceId":{"responsePath":"approvalRuleTemplate.approvalRuleTemplateId"}}",
+            ],
+          ],
+        },
+        "Delete": "{"service":"@aws-sdk/client-codecommit","action":"DeleteApprovalRuleTemplateCommand","parameters":{"approvalRuleTemplateName":"MyTestStackApprovalRuleTemplate0B9DBA08"}}",
+        "InstallLatestAwsSdk": true,
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "AWS679f53fac002430cb0da5b7982bd22872D164C4C",
+            "Arn",
+          ],
+        },
+        "Update": {
+          "Fn::Join": [
+            "",
+            [
+              "{"service":"@aws-sdk/client-codecommit","action":"UpdateApprovalRuleTemplateContentCommand","parameters":{"approvalRuleTemplateName":"MyTestStackApprovalRuleTemplate0B9DBA08","newRuleContent":"{\\"Version\\":\\"2018-11-08\\",\\"DestinationReferences\\":[\\"refs/heads/main\\"],\\"Statements\\":[{\\"Type\\":\\"Approvers\\",\\"ApprovalPoolMembers\\":[\\"CodeCommitApprovers:",
+              {
+                "Ref": "ProjctRoleF3097B6D",
+              },
+              "/*\\"],\\"NumberOfApprovalsNeeded\\":1}]}"},"physicalResourceId":{"responsePath":"approvalRuleTemplate.approvalRuleTemplateId"}}",
+            ],
+          ],
+        },
+      },
+      "Type": "Custom::ApprovalRuleTemplate",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "ApprovalRuleTemplateAssociate07D393877": {
+      "DeletionPolicy": "Delete",
+      "DependsOn": [
+        "ApprovalRuleTemplateAssociate0CustomResourcePolicyFE49ADDB",
+        "ApprovalRuleTemplateCustomResourcePolicyD7ED5985",
+        "ApprovalRuleTemplate298A4659",
+      ],
+      "Properties": {
+        "Create": {
+          "Fn::Join": [
+            "",
+            [
+              "{"service":"@aws-sdk/client-codecommit","action":"AssociateApprovalRuleTemplateWithRepositoryCommand","parameters":{"approvalRuleTemplateName":"MyTestStackApprovalRuleTemplate0B9DBA08","repositoryName":"",
+              {
+                "Fn::GetAtt": [
+                  "Repository22E53BBD",
+                  "Name",
+                ],
+              },
+              ""},"physicalResourceId":{"id":"Associate0"}}",
+            ],
+          ],
+        },
+        "Delete": {
+          "Fn::Join": [
+            "",
+            [
+              "{"service":"@aws-sdk/client-codecommit","action":"DisassociateApprovalRuleTemplateFromRepositoryCommand","parameters":{"approvalRuleTemplateName":"MyTestStackApprovalRuleTemplate0B9DBA08","repositoryName":"",
+              {
+                "Fn::GetAtt": [
+                  "Repository22E53BBD",
+                  "Name",
+                ],
+              },
+              ""}}",
+            ],
+          ],
+        },
+        "InstallLatestAwsSdk": true,
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "AWS679f53fac002430cb0da5b7982bd22872D164C4C",
+            "Arn",
+          ],
+        },
+        "Update": {
+          "Fn::Join": [
+            "",
+            [
+              "{"service":"@aws-sdk/client-codecommit","action":"AssociateApprovalRuleTemplateWithRepositoryCommand","parameters":{"approvalRuleTemplateName":"MyTestStackApprovalRuleTemplate0B9DBA08","repositoryName":"",
+              {
+                "Fn::GetAtt": [
+                  "Repository22E53BBD",
+                  "Name",
+                ],
+              },
+              ""},"physicalResourceId":{"id":"Associate0"}}",
+            ],
+          ],
+        },
+      },
+      "Type": "Custom::AssociateApprovalRuleTemplateWithRepository",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "ApprovalRuleTemplateAssociate0CustomResourcePolicyFE49ADDB": {
+      "DependsOn": [
+        "ApprovalRuleTemplateCustomResourcePolicyD7ED5985",
+        "ApprovalRuleTemplate298A4659",
+      ],
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "codecommit:AssociateApprovalRuleTemplateWithRepository",
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            {
+              "Action": "codecommit:DisassociateApprovalRuleTemplateFromRepository",
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "ApprovalRuleTemplateAssociate0CustomResourcePolicyFE49ADDB",
+        "Roles": [
+          {
+            "Ref": "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "ApprovalRuleTemplateCustomResourcePolicyD7ED5985": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "codecommit:CreateApprovalRuleTemplate",
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            {
+              "Action": "codecommit:UpdateApprovalRuleTemplateContent",
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+            {
+              "Action": "codecommit:DeleteApprovalRuleTemplate",
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "ApprovalRuleTemplateCustomResourcePolicyD7ED5985",
+        "Roles": [
+          {
+            "Ref": "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "ProjctEventsRoleBD2312FC": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "events.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "ProjctEventsRoleDefaultPolicy16A43BCB": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "codebuild:StartBuild",
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "ProjctFF1DE844",
+                  "Arn",
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "ProjctEventsRoleDefaultPolicy16A43BCB",
+        "Roles": [
+          {
+            "Ref": "ProjctEventsRoleBD2312FC",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "ProjctFF1DE844": {
+      "Properties": {
+        "Artifacts": {
+          "Type": "NO_ARTIFACTS",
+        },
+        "Cache": {
+          "Type": "NO_CACHE",
+        },
+        "EncryptionKey": "alias/aws/s3",
+        "Environment": {
+          "ComputeType": "BUILD_GENERAL1_SMALL",
+          "Image": "aws/codebuild/standard:7.0",
+          "ImagePullCredentialsType": "CODEBUILD",
+          "PrivilegedMode": false,
+          "Type": "LINUX_CONTAINER",
+        },
+        "ServiceRole": {
+          "Fn::GetAtt": [
+            "ProjctRoleF3097B6D",
+            "Arn",
+          ],
+        },
+        "Source": {
+          "BuildSpec": "version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20.x
+  pre_build:
+    commands:
+      - node --version
+      - npm ci
+  build:
+    commands:
+      - npm run test
+      - REVISION_ID=$(aws codecommit get-pull-request --pull-request-id $PULL_REQUEST_ID | jq -r '.pullRequest.revisionId')
+      - aws codecommit update-pull-request-approval-state --pull-request-id $PULL_REQUEST_ID --revision-id $REVISION_ID --approval-state APPROVE --region $AWS_REGION
+",
+          "Location": {
+            "Fn::GetAtt": [
+              "Repository22E53BBD",
+              "CloneUrlHttp",
+            ],
+          },
+          "Type": "CODECOMMIT",
+        },
+      },
+      "Type": "AWS::CodeBuild::Project",
+    },
+    "ProjctRoleDefaultPolicyE4E9FBE4": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "codecommit:GitPull",
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "Repository22E53BBD",
+                  "Arn",
+                ],
+              },
+            },
+            {
+              "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents",
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":logs:",
+                      {
+                        "Ref": "AWS::Region",
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId",
+                      },
+                      ":log-group:/aws/codebuild/",
+                      {
+                        "Ref": "ProjctFF1DE844",
+                      },
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":logs:",
+                      {
+                        "Ref": "AWS::Region",
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId",
+                      },
+                      ":log-group:/aws/codebuild/",
+                      {
+                        "Ref": "ProjctFF1DE844",
+                      },
+                      ":*",
+                    ],
+                  ],
+                },
+              ],
+            },
+            {
+              "Action": [
+                "codebuild:CreateReportGroup",
+                "codebuild:CreateReport",
+                "codebuild:UpdateReport",
+                "codebuild:BatchPutTestCases",
+                "codebuild:BatchPutCodeCoverages",
+              ],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition",
+                    },
+                    ":codebuild:",
+                    {
+                      "Ref": "AWS::Region",
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId",
+                    },
+                    ":report-group/",
+                    {
+                      "Ref": "ProjctFF1DE844",
+                    },
+                    "-*",
+                  ],
+                ],
+              },
+            },
+            {
+              "Action": [
+                "codecommit:CreatePullRequestApprovalRule",
+                "codecommit:GetPullRequest",
+                "codecommit:PostCommentForPullRequest",
+                "codecommit:UpdatePullRequestApprovalState",
+              ],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "Repository22E53BBD",
+                  "Arn",
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "ProjctRoleDefaultPolicyE4E9FBE4",
+        "Roles": [
+          {
+            "Ref": "ProjctRoleF3097B6D",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "ProjctRoleF3097B6D": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "codebuild.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "PullRequestTriggerRule37E6E74D": {
+      "Properties": {
+        "EventPattern": {
+          "detail": {
+            "destinationReference": [
+              "refs/heads/main",
+            ],
+            "event": [
+              "pullRequestCreated",
+              "pullRequestSourceBranchUpdated",
+            ],
+            "isMerged": [
+              "False",
+            ],
+            "repositoryNames": [
+              {
+                "Fn::GetAtt": [
+                  "Repository22E53BBD",
+                  "Name",
+                ],
+              },
+            ],
+          },
+          "source": [
+            "aws.codecommit",
+          ],
+        },
+        "State": "ENABLED",
+        "Targets": [
+          {
+            "Arn": {
+              "Fn::GetAtt": [
+                "ProjctFF1DE844",
+                "Arn",
+              ],
+            },
+            "Id": "Target0",
+            "InputTransformer": {
+              "InputPathsMap": {
+                "detail-destinationCommit": "$.detail.destinationCommit",
+                "detail-pullRequestId": "$.detail.pullRequestId",
+                "detail-sourceCommit": "$.detail.sourceCommit",
+              },
+              "InputTemplate": "{
+	"sourceVersion": "<detail-sourceCommit>",
+	"environmentVariablesOverride": [
+		{
+			"name": "DESTINATION_COMMIT_ID",
+			"type": "PLAINTEXT",
+			"value": "<detail-destinationCommit>"
+		},
+		{
+			"name": "SOURCE_COMMIT_ID",
+			"type": "PLAINTEXT",
+			"value": "<detail-sourceCommit>"
+		},
+		{
+			"name": "PULL_REQUEST_ID",
+			"type": "PLAINTEXT",
+			"value": "<detail-pullRequestId>"
+		}
+	]
+}",
+            },
+            "RoleArn": {
+              "Fn::GetAtt": [
+                "ProjctEventsRoleBD2312FC",
+                "Arn",
+              ],
+            },
+          },
+        ],
+      },
+      "Type": "AWS::Events::Rule",
+    },
+    "Repository22E53BBD": {
+      "Properties": {
+        "Code": {
+          "S3": {
+            "Bucket": {
+              "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
+            },
+            "Key": "HASH-REPLACED.zip",
+          },
+        },
+        "RepositoryName": "PullReqeustApproveDemo",
+      },
+      "Type": "AWS::CodeCommit::Repository",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
