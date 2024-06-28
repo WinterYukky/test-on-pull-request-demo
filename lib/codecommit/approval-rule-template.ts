@@ -1,5 +1,5 @@
 import { Names, Resource } from "aws-cdk-lib";
-import { Repository } from "aws-cdk-lib/aws-codecommit";
+import { IRepository } from "aws-cdk-lib/aws-codecommit";
 import { IRole, IUser } from "aws-cdk-lib/aws-iam";
 import {
   AwsCustomResource,
@@ -39,7 +39,7 @@ export interface ApprovalRuleTemplateProps {
   readonly numberOfApprovalsNeeded: number;
   readonly approvalPoolMembers?: ApprovalMember[];
   readonly description?: string;
-  readonly repositories?: Repository[];
+  readonly repositories?: IRepository[];
 }
 
 export class ApprovalRuleTemplate

@@ -181,25 +181,25 @@ exports[`snapshot test 1`] = `
       },
       "Type": "AWS::IAM::Role",
     },
-    "ApprovalRuleTemplate298A4659": {
+    "PullRequestTriggerBuildProjectApprovalRuleTemplate1F686289": {
       "DeletionPolicy": "Delete",
       "DependsOn": [
-        "ApprovalRuleTemplateCustomResourcePolicyD7ED5985",
+        "PullRequestTriggerBuildProjectApprovalRuleTemplateCustomResourcePolicy837FF73C",
       ],
       "Properties": {
         "Create": {
           "Fn::Join": [
             "",
             [
-              "{"service":"@aws-sdk/client-codecommit","action":"CreateApprovalRuleTemplateCommand","parameters":{"approvalRuleTemplateName":"MyTestStackApprovalRuleTemplate0B9DBA08","approvalRuleTemplateContent":"{\\"Version\\":\\"2018-11-08\\",\\"DestinationReferences\\":[\\"refs/heads/main\\"],\\"Statements\\":[{\\"Type\\":\\"Approvers\\",\\"ApprovalPoolMembers\\":[\\"CodeCommitApprovers:",
+              "{"service":"@aws-sdk/client-codecommit","action":"CreateApprovalRuleTemplateCommand","parameters":{"approvalRuleTemplateName":"MyTestStackPullRequestTriggerBuildProjectApprovalRuleTemplate0CF9F3C0","approvalRuleTemplateContent":"{\\"Version\\":\\"2018-11-08\\",\\"DestinationReferences\\":[\\"refs/heads/main\\"],\\"Statements\\":[{\\"Type\\":\\"Approvers\\",\\"ApprovalPoolMembers\\":[\\"CodeCommitApprovers:",
               {
-                "Ref": "ProjctRoleF3097B6D",
+                "Ref": "PullRequestTriggerBuildProjectProjctRole1AA37B71",
               },
               "/*\\"],\\"NumberOfApprovalsNeeded\\":1}]}"},"physicalResourceId":{"responsePath":"approvalRuleTemplate.approvalRuleTemplateId"}}",
             ],
           ],
         },
-        "Delete": "{"service":"@aws-sdk/client-codecommit","action":"DeleteApprovalRuleTemplateCommand","parameters":{"approvalRuleTemplateName":"MyTestStackApprovalRuleTemplate0B9DBA08"}}",
+        "Delete": "{"service":"@aws-sdk/client-codecommit","action":"DeleteApprovalRuleTemplateCommand","parameters":{"approvalRuleTemplateName":"MyTestStackPullRequestTriggerBuildProjectApprovalRuleTemplate0CF9F3C0"}}",
         "InstallLatestAwsSdk": true,
         "ServiceToken": {
           "Fn::GetAtt": [
@@ -211,9 +211,9 @@ exports[`snapshot test 1`] = `
           "Fn::Join": [
             "",
             [
-              "{"service":"@aws-sdk/client-codecommit","action":"UpdateApprovalRuleTemplateContentCommand","parameters":{"approvalRuleTemplateName":"MyTestStackApprovalRuleTemplate0B9DBA08","newRuleContent":"{\\"Version\\":\\"2018-11-08\\",\\"DestinationReferences\\":[\\"refs/heads/main\\"],\\"Statements\\":[{\\"Type\\":\\"Approvers\\",\\"ApprovalPoolMembers\\":[\\"CodeCommitApprovers:",
+              "{"service":"@aws-sdk/client-codecommit","action":"UpdateApprovalRuleTemplateContentCommand","parameters":{"approvalRuleTemplateName":"MyTestStackPullRequestTriggerBuildProjectApprovalRuleTemplate0CF9F3C0","newRuleContent":"{\\"Version\\":\\"2018-11-08\\",\\"DestinationReferences\\":[\\"refs/heads/main\\"],\\"Statements\\":[{\\"Type\\":\\"Approvers\\",\\"ApprovalPoolMembers\\":[\\"CodeCommitApprovers:",
               {
-                "Ref": "ProjctRoleF3097B6D",
+                "Ref": "PullRequestTriggerBuildProjectProjctRole1AA37B71",
               },
               "/*\\"],\\"NumberOfApprovalsNeeded\\":1}]}"},"physicalResourceId":{"responsePath":"approvalRuleTemplate.approvalRuleTemplateId"}}",
             ],
@@ -223,19 +223,19 @@ exports[`snapshot test 1`] = `
       "Type": "Custom::ApprovalRuleTemplate",
       "UpdateReplacePolicy": "Delete",
     },
-    "ApprovalRuleTemplateAssociate07D393877": {
+    "PullRequestTriggerBuildProjectApprovalRuleTemplateAssociate052FDBDD7": {
       "DeletionPolicy": "Delete",
       "DependsOn": [
-        "ApprovalRuleTemplateAssociate0CustomResourcePolicyFE49ADDB",
-        "ApprovalRuleTemplateCustomResourcePolicyD7ED5985",
-        "ApprovalRuleTemplate298A4659",
+        "PullRequestTriggerBuildProjectApprovalRuleTemplateAssociate0CustomResourcePolicy22DCCB18",
+        "PullRequestTriggerBuildProjectApprovalRuleTemplateCustomResourcePolicy837FF73C",
+        "PullRequestTriggerBuildProjectApprovalRuleTemplate1F686289",
       ],
       "Properties": {
         "Create": {
           "Fn::Join": [
             "",
             [
-              "{"service":"@aws-sdk/client-codecommit","action":"AssociateApprovalRuleTemplateWithRepositoryCommand","parameters":{"approvalRuleTemplateName":"MyTestStackApprovalRuleTemplate0B9DBA08","repositoryName":"",
+              "{"service":"@aws-sdk/client-codecommit","action":"AssociateApprovalRuleTemplateWithRepositoryCommand","parameters":{"approvalRuleTemplateName":"MyTestStackPullRequestTriggerBuildProjectApprovalRuleTemplate0CF9F3C0","repositoryName":"",
               {
                 "Fn::GetAtt": [
                   "Repository22E53BBD",
@@ -250,7 +250,7 @@ exports[`snapshot test 1`] = `
           "Fn::Join": [
             "",
             [
-              "{"service":"@aws-sdk/client-codecommit","action":"DisassociateApprovalRuleTemplateFromRepositoryCommand","parameters":{"approvalRuleTemplateName":"MyTestStackApprovalRuleTemplate0B9DBA08","repositoryName":"",
+              "{"service":"@aws-sdk/client-codecommit","action":"DisassociateApprovalRuleTemplateFromRepositoryCommand","parameters":{"approvalRuleTemplateName":"MyTestStackPullRequestTriggerBuildProjectApprovalRuleTemplate0CF9F3C0","repositoryName":"",
               {
                 "Fn::GetAtt": [
                   "Repository22E53BBD",
@@ -272,7 +272,7 @@ exports[`snapshot test 1`] = `
           "Fn::Join": [
             "",
             [
-              "{"service":"@aws-sdk/client-codecommit","action":"AssociateApprovalRuleTemplateWithRepositoryCommand","parameters":{"approvalRuleTemplateName":"MyTestStackApprovalRuleTemplate0B9DBA08","repositoryName":"",
+              "{"service":"@aws-sdk/client-codecommit","action":"AssociateApprovalRuleTemplateWithRepositoryCommand","parameters":{"approvalRuleTemplateName":"MyTestStackPullRequestTriggerBuildProjectApprovalRuleTemplate0CF9F3C0","repositoryName":"",
               {
                 "Fn::GetAtt": [
                   "Repository22E53BBD",
@@ -287,10 +287,10 @@ exports[`snapshot test 1`] = `
       "Type": "Custom::AssociateApprovalRuleTemplateWithRepository",
       "UpdateReplacePolicy": "Delete",
     },
-    "ApprovalRuleTemplateAssociate0CustomResourcePolicyFE49ADDB": {
+    "PullRequestTriggerBuildProjectApprovalRuleTemplateAssociate0CustomResourcePolicy22DCCB18": {
       "DependsOn": [
-        "ApprovalRuleTemplateCustomResourcePolicyD7ED5985",
-        "ApprovalRuleTemplate298A4659",
+        "PullRequestTriggerBuildProjectApprovalRuleTemplateCustomResourcePolicy837FF73C",
+        "PullRequestTriggerBuildProjectApprovalRuleTemplate1F686289",
       ],
       "Properties": {
         "PolicyDocument": {
@@ -308,7 +308,7 @@ exports[`snapshot test 1`] = `
           ],
           "Version": "2012-10-17",
         },
-        "PolicyName": "ApprovalRuleTemplateAssociate0CustomResourcePolicyFE49ADDB",
+        "PolicyName": "PullRequestTriggerBuildProjectApprovalRuleTemplateAssociate0CustomResourcePolicy22DCCB18",
         "Roles": [
           {
             "Ref": "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
@@ -317,7 +317,7 @@ exports[`snapshot test 1`] = `
       },
       "Type": "AWS::IAM::Policy",
     },
-    "ApprovalRuleTemplateCustomResourcePolicyD7ED5985": {
+    "PullRequestTriggerBuildProjectApprovalRuleTemplateCustomResourcePolicy837FF73C": {
       "Properties": {
         "PolicyDocument": {
           "Statement": [
@@ -339,7 +339,7 @@ exports[`snapshot test 1`] = `
           ],
           "Version": "2012-10-17",
         },
-        "PolicyName": "ApprovalRuleTemplateCustomResourcePolicyD7ED5985",
+        "PolicyName": "PullRequestTriggerBuildProjectApprovalRuleTemplateCustomResourcePolicy837FF73C",
         "Roles": [
           {
             "Ref": "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
@@ -348,50 +348,7 @@ exports[`snapshot test 1`] = `
       },
       "Type": "AWS::IAM::Policy",
     },
-    "ProjctEventsRoleBD2312FC": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "events.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "ProjctEventsRoleDefaultPolicy16A43BCB": {
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": "codebuild:StartBuild",
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::GetAtt": [
-                  "ProjctFF1DE844",
-                  "Arn",
-                ],
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "ProjctEventsRoleDefaultPolicy16A43BCB",
-        "Roles": [
-          {
-            "Ref": "ProjctEventsRoleBD2312FC",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
-    "ProjctFF1DE844": {
+    "PullRequestTriggerBuildProjectProjct8A555D34": {
       "Properties": {
         "Artifacts": {
           "Type": "NO_ARTIFACTS",
@@ -409,7 +366,7 @@ exports[`snapshot test 1`] = `
         },
         "ServiceRole": {
           "Fn::GetAtt": [
-            "ProjctRoleF3097B6D",
+            "PullRequestTriggerBuildProjectProjctRole1AA37B71",
             "Arn",
           ],
         },
@@ -440,7 +397,67 @@ phases:
       },
       "Type": "AWS::CodeBuild::Project",
     },
-    "ProjctRoleDefaultPolicyE4E9FBE4": {
+    "PullRequestTriggerBuildProjectProjctEventsRoleC0C94D46": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "events.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "PullRequestTriggerBuildProjectProjctEventsRoleDefaultPolicy67134DCA": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "codebuild:StartBuild",
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "PullRequestTriggerBuildProjectProjct8A555D34",
+                  "Arn",
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "PullRequestTriggerBuildProjectProjctEventsRoleDefaultPolicy67134DCA",
+        "Roles": [
+          {
+            "Ref": "PullRequestTriggerBuildProjectProjctEventsRoleC0C94D46",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "PullRequestTriggerBuildProjectProjctRole1AA37B71": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "codebuild.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "PullRequestTriggerBuildProjectProjctRoleDefaultPolicy68CD0E93": {
       "Properties": {
         "PolicyDocument": {
           "Statement": [
@@ -480,7 +497,7 @@ phases:
                       },
                       ":log-group:/aws/codebuild/",
                       {
-                        "Ref": "ProjctFF1DE844",
+                        "Ref": "PullRequestTriggerBuildProjectProjct8A555D34",
                       },
                     ],
                   ],
@@ -503,7 +520,7 @@ phases:
                       },
                       ":log-group:/aws/codebuild/",
                       {
-                        "Ref": "ProjctFF1DE844",
+                        "Ref": "PullRequestTriggerBuildProjectProjct8A555D34",
                       },
                       ":*",
                     ],
@@ -538,7 +555,7 @@ phases:
                     },
                     ":report-group/",
                     {
-                      "Ref": "ProjctFF1DE844",
+                      "Ref": "PullRequestTriggerBuildProjectProjct8A555D34",
                     },
                     "-*",
                   ],
@@ -563,33 +580,16 @@ phases:
           ],
           "Version": "2012-10-17",
         },
-        "PolicyName": "ProjctRoleDefaultPolicyE4E9FBE4",
+        "PolicyName": "PullRequestTriggerBuildProjectProjctRoleDefaultPolicy68CD0E93",
         "Roles": [
           {
-            "Ref": "ProjctRoleF3097B6D",
+            "Ref": "PullRequestTriggerBuildProjectProjctRole1AA37B71",
           },
         ],
       },
       "Type": "AWS::IAM::Policy",
     },
-    "ProjctRoleF3097B6D": {
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "codebuild.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "PullRequestTriggerRule37E6E74D": {
+    "PullRequestTriggerBuildProjectPullRequestTriggerRuleD92EC872": {
       "Properties": {
         "EventPattern": {
           "detail": {
@@ -621,7 +621,7 @@ phases:
           {
             "Arn": {
               "Fn::GetAtt": [
-                "ProjctFF1DE844",
+                "PullRequestTriggerBuildProjectProjct8A555D34",
                 "Arn",
               ],
             },
@@ -655,7 +655,7 @@ phases:
             },
             "RoleArn": {
               "Fn::GetAtt": [
-                "ProjctEventsRoleBD2312FC",
+                "PullRequestTriggerBuildProjectProjctEventsRoleC0C94D46",
                 "Arn",
               ],
             },
